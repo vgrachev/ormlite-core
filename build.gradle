@@ -1,0 +1,32 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main.compileClasspath += configurations.provided
+    test.compileClasspath += configurations.provided
+    test.runtimeClasspath += configurations.provided
+}
+
+dependencies {
+    provided 'org.slf4j:slf4j-api:1.7.2'
+    provided 'org.slf4j:slf4j-log4j12:1.7.2'
+
+    provided 'javax.persistence:persistence-api:1.0'
+
+    testCompile 'junit:junit:4.3.1'
+    testCompile 'commons-lang:commons-lang:2.1'
+    testCompile 'org.easymock:easymock:2.3'
+    testCompile 'com.h2database:h2:1.2.128'
+}
+
+compileJava {
+    sourceCompatibility "7"
+    targetCompatibility "7"
+}

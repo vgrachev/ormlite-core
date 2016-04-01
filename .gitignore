@@ -1,3 +1,14 @@
+local.properties
+*.apk
+*.ap_
+*.dex
+*.class
+.DS_Store
+build
+.gradle
+gradle-app.setting
+.idea/
+*.iml
 target
 .settings
 .classpath
