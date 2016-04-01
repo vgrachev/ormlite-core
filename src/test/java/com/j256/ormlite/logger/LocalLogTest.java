@@ -1,17 +1,12 @@
 package com.j256.ormlite.logger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
-
+import com.j256.ormlite.logger.Log.Level;
 import org.junit.Test;
 
-import com.j256.ormlite.logger.Log.Level;
+import java.io.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LocalLogTest extends BaseLogTest {
 
@@ -46,7 +41,7 @@ public class LocalLogTest extends BaseLogTest {
 
 	@Test(timeout = 10000)
 	public void testFileProperty() throws Exception {
-		String logPath = "target/foo.txt";
+		String logPath = "build/foo.txt";
 		File logFile = new File(logPath);
 		logFile.delete();
 		LocalLog.openLogFile(logPath);
@@ -73,7 +68,7 @@ public class LocalLogTest extends BaseLogTest {
 
 	@Test
 	public void testNotEnabled() {
-		String logPath = "target/foo.txt";
+		String logPath = "build/foo.txt";
 		File logFile = new File(logPath);
 		logFile.delete();
 		LocalLog.openLogFile(logPath);
